@@ -1,7 +1,10 @@
-require('dotenv').load();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').load();
+}
 
 mongoose.Promise = global.Promise;
 mongoose.connect(`mongodb://<dbuser>:<dbpassword>@ds121726.mlab.com:21726/todolist`);
